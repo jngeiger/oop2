@@ -19,10 +19,10 @@ public static void main(String[] args)
 
 @Override
 public void start(Stage primaryStage) {
-    primaryStage.setTitle("Hello World!");
-    Button btn = new Button();
+    primaryStage.setTitle("First FX program of jngeiger!");
+    var btn = new Button();
     btn.setText("Say 'Hello World'");  
-    Counter c = new Counter();
+    var c = new Counter();
     btn.setOnAction(event -> { 
     	if (c.get() >= 9) 
     	{ 
@@ -36,7 +36,7 @@ public void start(Stage primaryStage) {
     
     StackPane root = new StackPane();
     root.getChildren().add(btn);
-    primaryStage.setScene(new Scene(root, 600, 250));
+    primaryStage.setScene(new Scene(root, 300, 200));
     primaryStage.show();
 }
 
