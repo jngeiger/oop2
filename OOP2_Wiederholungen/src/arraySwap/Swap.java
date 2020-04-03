@@ -1,4 +1,4 @@
-package ArraySwap;
+package arraySwap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,7 +47,7 @@ public class Swap {
 	public static void main(String[] args)
 	{
 		var s1 = new String[] {"Hello", "World"};
-		var s2 = new String[] {"Alex", "Christ"};
+		var s2 = new String[] {"Alex", "Chris"};
 		swap(s1,s2);
 		System.out.println(Arrays.toString(s1));
 		System.out.println(Arrays.toString(s2));
