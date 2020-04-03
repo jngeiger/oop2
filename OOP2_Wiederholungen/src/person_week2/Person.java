@@ -36,6 +36,10 @@ public void addAddress(Address a) throws Exception
 	}
 }
 
+public int getAge()
+{
+	return this.age;
+}
 @Override
 public String toString()
 {
@@ -72,6 +76,16 @@ public static void main(String[] args) throws Exception
 	list.get(2).addAddress(new Address(DESCRIPTION.SECONDARY, "Teststreet 20", "Hof", 95028));
 	list.get(2).addAddress(new Address(DESCRIPTION.SECRET, "Secretstreet 1", "Hof", 95444));
 	printPersons("Alle Personen", list);
+	
+	var list1 = new ArrayList<Person>();
+	for (int i = 0; i < list.size(); i++)
+	{
+		if (list.get(i).getAge() > 20)
+		{
+			list1.add(list.get(i));
+		}
+	}
+	printPersons("Alle Personen", list1);
 	
 }
 
