@@ -26,7 +26,7 @@ public class Swap {
 		}
 	}
 	
-	public static <T extends Number, R extends Number> void swap (T[] obj1, T[] obj2, Function<Integer,Double> f1, Function<T,Integer> f2)
+	public static <T extends Number> void swap (T[] obj1, T[] obj2, Function<Integer,Double> f1, Function<T,Integer> f2)
 	{
 		ArrayList<Number> list = new ArrayList<Number>();
 		
