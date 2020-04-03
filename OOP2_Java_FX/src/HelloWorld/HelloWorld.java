@@ -26,7 +26,7 @@ public void start(Stage primaryStage) {
     var btn2 = new Button();
     btn2.setText("Exit");
     var c = new Counter();
-    btn2.setOnAction(event -> { System.exit(0); }); 
+    btn2.setOnAction(event ->  {System.exit(0);} ); 
     btn.setOnAction(event -> { 
     	if (c.get() >= 9) 
     	{ 

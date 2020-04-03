@@ -26,9 +26,9 @@ public class Swap {
 		}
 	}
 	
-	public static <T extends Number> void swap (T[] obj1, T[] obj2, Function<Integer,Double> f1, Function<T,Integer> f2)
+	public static <T> void swap (T[] obj1, T[] obj2, Function<Double,T> f1, Function<T,T> f2)
 	{
-		ArrayList<Number> list = new ArrayList<Number>();
+		ArrayList<T> list = new ArrayList<T>();
 		
 		for (T item : obj1)
 		{
@@ -36,12 +36,12 @@ public class Swap {
 		}
 		for (int i = 0; i < obj2.length; i++)
 		{
-			obj1[i] = (T)f2.apply(obj2[i]);
+			obj1[i] = f2.apply(obj2[i]);
 			
 		}
 		for (int i = 0; i < obj2.length; i++)
 		{
-			obj2[i] = (T)f1.apply((Integer)list.get(i));
+			obj2[i] = f1.apply(Double.valueOf(list.get(i).toString()));
 		}
 	}
 	public static void main(String[] args)
@@ -56,7 +56,6 @@ public class Swap {
 		swap(i1,d2,i -> Double.valueOf(i), d -> Integer.valueOf(d.intValue()));
 		System.out.println(Arrays.toString(i1));//[2,6]
 		System.out.println(Arrays.toString(d2));//[1.0,4.0]
-		
-		
+				
 	}
 }
