@@ -2,6 +2,7 @@ package person_week2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Person {
 	private String firstName;
@@ -75,7 +76,7 @@ public static void main(String[] args) throws Exception
 	list.get(2).addAddress(new Address(DESCRIPTION.PRIMARY, "Teststreet 19", "Hof", 95030));
 	list.get(2).addAddress(new Address(DESCRIPTION.SECONDARY, "Teststreet 20", "Hof", 95028));
 	list.get(2).addAddress(new Address(DESCRIPTION.SECRET, "Secretstreet 1", "Hof", 95444));
-	printPersons("Alle Personen", list);
+	//printPersons("Alle Personen", list);
 	
 	var list1 = new ArrayList<Person>();
 	for (int i = 0; i < list.size(); i++)
@@ -86,6 +87,9 @@ public static void main(String[] args) throws Exception
 		}
 	}
 	printPersons("Alle Personen", list1);
+	list.stream().filter(item -> item.getAge() > 20).forEach(System.out::println);
+	
+	
 	
 }
 
