@@ -109,12 +109,14 @@ public static void main(String[] args) throws Exception
 	list4[4] = new Person("Lans", "Meister",2);
 	
 	// anonymous interface sort person by their name
-//	Arrays.sort(list4, new Comparator<Person>() {
-//		public int compare (Person p1, Person p2)
-//		{
-//			return p1.getName().compareTo(p2.getName());
-//		}
-//	});
+	Arrays.sort(list4, new Comparator<Person>() {
+		public int compare(Person p1, Person p2)
+		{
+			return p1.getName().compareTo(p2.getName());
+		}
+	});
+	
+	
 	
 	// lambda expression sort person by their name
 	Arrays.sort(list4, (p1, p2) -> p1.getName().compareTo(p2.getName()));
