@@ -127,7 +127,7 @@ public static void main(String[] args) throws Exception
 	
 	// Average age functional
 	List<Person> list6 = Arrays.asList(list4);
-	
+	System.out.println(list6.parallelStream().map(x -> x.getAge()).reduce(0, (Integer a, Integer b) -> a + b) / list6.size());
 	
 	
 }
