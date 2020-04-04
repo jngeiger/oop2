@@ -1,6 +1,8 @@
 package person_week2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -11,6 +13,7 @@ public class Person {
 	private int age;
 	private Address[] addresses;
 	private int addTop;
+
 	
 public Person(String f, String l, int a) {
 	this.age  = a;
@@ -18,6 +21,8 @@ public Person(String f, String l, int a) {
 	this.lastName = l;
 	this.addresses = new Address[3];
 }
+
+public String getName() { return this.firstName+this.lastName; }
 
 public void addAddress(Address a) throws Exception
 {
@@ -87,15 +92,41 @@ public static void main(String[] args) throws Exception
 			list1.add(list.get(i));
 		}
 	}
+	
+	
+	
+	
 	printPersons("Alle Personen", list1);
 	list.stream().filter(item -> item.getAge() > 20).forEach(item -> System.out.println(item));
 	
 	
+	//some random array with persons
+	Person[] list4 = new Person[5];
+	list4[0] = new Person("Hans", "Meister",2);
+	list4[1] = new Person("Xans", "Meister",2);
+	list4[2] = new Person("Aans", "Meister",2);
+	list4[3] = new Person("Pans", "Meister",2);
+	list4[4] = new Person("Lans", "Meister",2);
 	
+	// anonymous interface sort person by their name
+//	Arrays.sort(list4, new Comparator<Person>() {
+//		public int compare (Person p1, Person p2)
+//		{
+//			return p1.getName().compareTo(p2.getName());
+//		}
+//	});
 	
+	// lambda expression sort person by their name
+	Arrays.sort(list4, (p1, p2) -> p1.getName().compareTo(p2.getName()));
+	
+	System.out.println(Arrays.deepToString(list4));
+	Person p1 = new Person("Hans", "Mustermann", 20);
+	Person p2 = new Person("Max", "müller", 20);
 	
 	
 }
+
+
 
 private static void printPersons(String header, List<Person>persons)
 {
@@ -106,7 +137,9 @@ private static void printPersons(String header, List<Person>persons)
 			System.out.println(p);
 		}
 	}
-}	
+}
+
+
 
 	
 
