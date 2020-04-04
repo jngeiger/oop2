@@ -1,5 +1,6 @@
 package person_week2;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -102,11 +103,11 @@ public static void main(String[] args) throws Exception
 	
 	//some random array with persons
 	Person[] list4 = new Person[5];
-	list4[0] = new Person("Hans", "Meister",2);
-	list4[1] = new Person("Xans", "Meister",2);
-	list4[2] = new Person("Aans", "Meister",2);
-	list4[3] = new Person("Pans", "Meister",2);
-	list4[4] = new Person("Lans", "Meister",2);
+	list4[0] = new Person("Hans", "Meister",200);
+	list4[1] = new Person("Xans", "Meister",100);
+	list4[2] = new Person("Aans", "Meister",100);
+	list4[3] = new Person("Pans", "Meister",200);
+	list4[4] = new Person("Lans", "Meister",100);
 	
 	// anonymous interface sort person by their name
 	Arrays.sort(list4, new Comparator<Person>() {
@@ -122,13 +123,26 @@ public static void main(String[] args) throws Exception
 	Arrays.sort(list4, (p1, p2) -> p1.getName().compareTo(p2.getName()));
 	
 	System.out.println(Arrays.deepToString(list4));
-	Person p1 = new Person("Hans", "Mustermann", 20);
-	Person p2 = new Person("Max", "müller", 20);
+	System.out.println(getAvg(list4));
+	
+	// Average age functional
+	List<Person> list6 = Arrays.asList(list4);
+	
 	
 	
 }
 
 
+// Average age iteration
+public static <T extends Person> int getAvg (T[] list)
+{
+	int temp = 0;
+	for (int i = 0; i < list.length; i ++)
+	{
+		temp += list[i].getAge();
+	}
+	return temp/list.length;
+}
 
 private static void printPersons(String header, List<Person>persons)
 {
