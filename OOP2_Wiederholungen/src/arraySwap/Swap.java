@@ -10,39 +10,23 @@ public class Swap {
 
 	public static <T> void swap (T[] obj1, T[] obj2) // Not efficient but works for now. maybe check later
 	{
-		ArrayList<T> list = new ArrayList<T>();
-		
-		for (T item : obj1)
+		for (int i = 0; i < obj1.length; i++)
 		{
-			list.add(item);
-		}
-		for (int i = 0; i < obj2.length; i++)
-		{
+			T temp = obj1[i];
 			obj1[i] = obj2[i];
-		}
-		for (int i = 0; i < obj2.length; i++)
-		{
-			obj2[i] = list.get(i);
+			obj2[i] = temp;
 		}
 	}
 	
-	public static <T> void swap (T[] obj1, T[] obj2, Function<Double,T> f1, Function<T,T> f2)
+	public static <T1,T2> void swap (T1[] obj1, T2[] obj2, Function<T1,T2> f1, Function<T2,T1> f2)
 	{
-		ArrayList<T> list = new ArrayList<T>();
-		
-		for (T item : obj1)
+		for (int i = 0; i < obj1.length; i++)
 		{
-			list.add(item);
-		}
-		for (int i = 0; i < obj2.length; i++)
-		{
+			T2 temp = f1.apply(obj1[i]);
 			obj1[i] = f2.apply(obj2[i]);
-			
+			obj2[i] = temp;
 		}
-		for (int i = 0; i < obj2.length; i++)
-		{
-			obj2[i] = f1.apply(Double.valueOf(list.get(i).toString()));
-		}
+		
 	}
 	public static void main(String[] args)
 	{

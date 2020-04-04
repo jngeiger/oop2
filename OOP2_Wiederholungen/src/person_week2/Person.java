@@ -3,6 +3,7 @@ package person_week2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Person {
 	private String firstName;
@@ -87,7 +88,10 @@ public static void main(String[] args) throws Exception
 		}
 	}
 	printPersons("Alle Personen", list1);
-	list.stream().filter(item -> item.getAge() > 20).forEach(System.out::println);
+	list.stream().filter(item -> item.getAge() > 20).forEach(item -> System.out.println(item));
+	
+	
+	
 	
 	
 	
