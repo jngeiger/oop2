@@ -23,6 +23,7 @@ public Person(String f, String l, int a) {
 	this.addresses = new Address[3];
 }
 
+public Person getCurrentPerson() { return this; }
 public String getName() { return this.firstName+this.lastName; }
 
 public void addAddress(Address a) throws Exception
@@ -127,14 +128,12 @@ public static void main(String[] args) throws Exception
 	
 	// Average age functional
 	List<Person> list6 = Arrays.asList(list4);
-	System.out.println(list6.parallelStream().map(x -> x.getAge()).reduce(0, (Integer a, Integer b) -> a + b) / list6.size());
-	
-	
+	System.out.println(list6.parallelStream().map(x -> x.getAge()).reduce(0, (Integer a, Integer b) ->  a+b) / list6.size());
 }
 
 
 // Average age iteration
-public static <T extends Person> int getAvg (T[] list)
+private static <T extends Person> int getAvg (T[] list)
 {
 	int temp = 0;
 	for (int i = 0; i < list.length; i ++)
