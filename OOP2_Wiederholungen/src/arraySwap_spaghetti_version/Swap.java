@@ -26,7 +26,7 @@ public class Swap {
 		}
 	}
 	
-	public static <T,T1,T2> void swap (T1[] obj1, T2[] obj2, Function<T1,T2> f1, Function<T2,T1> f2)
+	public static <T1,T2> void swap (T1[] obj1, T2[] obj2, Function<T1,T2> f1, Function<T2,T1> f2)
 	{
 		ArrayList<T1> list = new ArrayList<T1>();
 		
