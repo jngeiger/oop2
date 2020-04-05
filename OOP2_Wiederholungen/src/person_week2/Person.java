@@ -109,11 +109,11 @@ public static void main(String[] args) throws Exception
 	
 	//some random array with persons
 	Person[] list4 = new Person[5];
-	list4[0] = new Person("Hans", "Meister",200);
-	list4[1] = new Person("Horst", "Meister",100);
-	list4[2] = new Person("Gisela", "Meister",100);
-	list4[3] = new Person("Petra", "Meister",200);
-	list4[4] = new Person("Günther", "Meister",100);
+	list4[0] = new Person("Hans", "Meister",10);
+	list4[1] = new Person("Horst", "Meister",40);
+	list4[2] = new Person("Gisela", "Meister",30);
+	list4[3] = new Person("Petra", "Meister",1);
+	list4[4] = new Person("Günther", "Meister",20);
 	
 	// anonymous interface sort person by their name
 	Arrays.sort(list4, new Comparator<Person>() {
