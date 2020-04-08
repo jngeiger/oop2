@@ -1,0 +1,9 @@
+.root (
+	-fx-background-image: url("bg.jpg");
+)
+
+.label (
+	-fx-font-size: 12px;
+	-fx-font-weight: bold;
+	-fx-text-fill: #333333;
+)

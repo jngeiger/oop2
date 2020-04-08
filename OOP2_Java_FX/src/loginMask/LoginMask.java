@@ -33,6 +33,7 @@ public void start(Stage primaryStage) {
 	grid.setHgap(10);
 	grid.setVgap(10);
 	grid.setPadding(new Insets(25,25,25,25));
+	
 	//grid.setGridLinesVisible(true);
 	
 	Text scenetitle = new Text("Welcome");
@@ -67,8 +68,11 @@ public void start(Stage primaryStage) {
 	
 	
 	
+	
+	primaryStage.setTitle("Login Mask");
 	Scene scene = new Scene(grid, 300,200);
 	primaryStage.setScene(scene);
+	loginMask.LoginMask.class.getResource("login.css").toExternalForm();
 	primaryStage.show();
 
 	
