@@ -33,7 +33,7 @@ public void start(Stage primaryStage) {
     		System.out.println("Jetzt ist's aber mal gut!"); 
     	}
     	else { 
-    		System.out.println("Hallo Welt"); 
+    		System.out.println("Hello World"); 
     		c.add();
     	}  
     	});

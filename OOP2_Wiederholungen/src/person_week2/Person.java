@@ -23,6 +23,7 @@ public Person(String f, String l, int a) {
 	this.addresses = new Address[3];
 }
 
+public Person getCurrentPerson() { return this; }
 public String getName() { return this.firstName+this.lastName; }
 
 public void addAddress(Address a) throws Exception
@@ -42,6 +43,11 @@ public void addAddress(Address a) throws Exception
 	case SECONDARY: addresses[1] = a; break;
 	case SECRET: addresses[2] = a; break;
 	}
+}
+
+public Address[] getAddresses()
+{
+	return this.addresses;
 }
 
 public int getAge()
@@ -103,38 +109,46 @@ public static void main(String[] args) throws Exception
 	
 	//some random array with persons
 	Person[] list4 = new Person[5];
-	list4[0] = new Person("Hans", "Meister",200);
-	list4[1] = new Person("Xans", "Meister",100);
-	list4[2] = new Person("Aans", "Meister",100);
-	list4[3] = new Person("Pans", "Meister",200);
-	list4[4] = new Person("Lans", "Meister",100);
+	list4[0] = new Person("Hans", "Meister",10);
+	list4[1] = new Person("Horst", "Meister",40);
+	list4[2] = new Person("Gisela", "Meister",30);
+	list4[3] = new Person("Petra", "Meister",1);
+	list4[4] = new Person("Günther", "Meister",20);
 	
 	// anonymous interface sort person by their name
 	Arrays.sort(list4, new Comparator<Person>() {
 		public int compare(Person p1, Person p2)
 		{
-			return p1.getName().compareTo(p2.getName());
+			return p1.getName().toLowerCase().compareTo(p2.getName().toLowerCase());
 		}
 	});
 	
 	
 	
 	// lambda expression sort person by their name
-	Arrays.sort(list4, (p1, p2) -> p1.getName().compareTo(p2.getName()));
+	Arrays.sort(list4, (p1, p2) -> p1.getName().toLowerCase().compareTo(p2.getName().toLowerCase()));
 	
-	System.out.println(Arrays.deepToString(list4));
+	for (Person p: list4)
+	{
+		System.out.println(p.getName());
+	}
 	System.out.println(getAvg(list4));
 	
 	// Average age functional
 	List<Person> list6 = Arrays.asList(list4);
+	System.out.println(list6.parallelStream().map(x -> x.getAge()).reduce(0, (Integer a, Integer b) ->  a+b) / list6.size());
 	
-	
-	
+	// Check whether each person in the list has at least one primary address
+	System.out.println(list.parallelStream().allMatch(item -> { Address[] x = item.getAddresses(); return x[0] != null; })); // returns true!
+	// Test my other list for validity -> Should return false
+	System.out.println(list6.parallelStream().allMatch(item -> { Address[] x = item.getAddresses(); return x[0] != null; })); //returns false!
+	// Check whether at least one person has at least one 'secret address'
+	System.out.println(list.parallelStream().anyMatch(item -> { Address[] x = item.getAddresses(); return x[2] != null; })); // returns true, all good.
 }
 
 
 // Average age iteration
-public static <T extends Person> int getAvg (T[] list)
+private static <T extends Person> int getAvg (T[] list)
 {
 	int temp = 0;
 	for (int i = 0; i < list.length; i ++)
