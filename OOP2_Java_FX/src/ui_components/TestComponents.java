@@ -51,6 +51,7 @@ public class TestComponents extends Application {
 	graphicLabel.setOnMouseExited((e) -> { graphicLabel.setScaleX(1.0); graphicLabel.setScaleY(1.0); });
 	VBox vb = new VBox();
 	
+	
 	ToggleGroup group = new ToggleGroup();
 	RadioButton rb1 = new RadioButton("Home");
 	rb1.setToggleGroup(group);
