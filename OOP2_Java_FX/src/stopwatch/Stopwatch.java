@@ -26,6 +26,8 @@ public class Stopwatch extends Application {
 		// Button declarations
 		Button startBtn = new Button();
 		Button stopBtn = new Button();
+		Button exitBtn = new Button();
+		exitBtn.setText("Close");
 		startBtn.setText("Start");
 		stopBtn.setText("Stop");
 		
@@ -44,11 +46,13 @@ public class Stopwatch extends Application {
 			
 		});
 		
+		exitBtn.setOnAction(e -> System.exit(0));
 		
 		// Modify HBox
 		box.getChildren().add(fieldOut);
 		box.getChildren().add(startBtn);
 		box.getChildren().add(stopBtn);
+		box.getChildren().add(exitBtn);
 		
 		
 		// Meta layer
