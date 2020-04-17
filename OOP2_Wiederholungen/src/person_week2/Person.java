@@ -112,7 +112,7 @@ public static void main(String[] args) throws Exception
 	list4[0] = new Person("Hans", "Meister",10);
 	list4[1] = new Person("Horst", "Meister",40);
 	list4[2] = new Person("Gisela", "Meister",30);
-	list4[3] = new Person("Petra", "Meister",1);
+	list4[3] = new Person("Petra", "Blubber",1);
 	list4[4] = new Person("Günther", "Meister",20);
 	
 	// anonymous interface sort person by their name
@@ -134,6 +134,8 @@ public static void main(String[] args) throws Exception
 	}
 	System.out.println(getAvg(list4));
 	
+	
+	
 	// Average age functional
 	List<Person> list6 = Arrays.asList(list4);
 	System.out.println(list6.parallelStream().map(x -> x.getAge()).reduce(0, (Integer a, Integer b) ->  a+b) / list6.size());
@@ -144,6 +146,7 @@ public static void main(String[] args) throws Exception
 	System.out.println(list6.parallelStream().allMatch(item -> { Address[] x = item.getAddresses(); return x[0] != null; })); //returns false!
 	// Check whether at least one person has at least one 'secret address'
 	System.out.println(list.parallelStream().anyMatch(item -> { Address[] x = item.getAddresses(); return x[2] != null; })); // returns true, all good.
+	getPersonsWithI(list4);
 }
 
 
@@ -156,6 +159,21 @@ private static <T extends Person> int getAvg (T[] list)
 		temp += list[i].getAge();
 	}
 	return temp/list.length;
+}
+
+
+
+public static void getPersonsWithI(Person[] array)
+{
+	for (int i = 0; i < array.length; i++)
+	{
+		if (array[i].getName().contains("i"))
+		{
+			System.out.println(array[i].getName().toLowerCase());
+			System.out.println(array[i].getName().length());
+		}
+				
+	}
 }
 
 private static void printPersons(String header, List<Person>persons)

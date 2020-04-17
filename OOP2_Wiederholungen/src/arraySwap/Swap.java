@@ -8,15 +8,7 @@ import java.util.function.Predicate;
 
 public class Swap {
 
-	public static <T> void swap (T[] obj1, T[] obj2) // Not efficient but works for now. maybe check later
-	{
-		for (int i = 0; i < obj1.length; i++)
-		{
-			T temp = obj1[i];
-			obj1[i] = obj2[i];
-			obj2[i] = temp;
-		}
-	}
+
 	
 	public static <T1,T2> void swap (T1[] obj1, T2[] obj2, Function<T1,T2> f1, Function<T2,T1> f2)
 	{
@@ -32,7 +24,6 @@ public class Swap {
 	{
 		var s1 = new String[] {"Hello", "World"};
 		var s2 = new String[] {"Alex", "Chris"};
-		swap(s1,s2);
 		System.out.println(Arrays.toString(s1));
 		System.out.println(Arrays.toString(s2));
 		var i1 = new Integer[] {1,4};
@@ -40,6 +31,7 @@ public class Swap {
 		swap(i1,d2,i -> Double.valueOf(i), d -> Integer.valueOf(d.intValue()));
 		System.out.println(Arrays.toString(i1));//[2,6]
 		System.out.println(Arrays.toString(d2));//[1.0,4.0]
+		
 				
 	}
 }
