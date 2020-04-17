@@ -137,7 +137,6 @@ public static void main(String[] args) throws Exception
 	// Average age functional
 	List<Person> list6 = Arrays.asList(list4);
 	System.out.println(list6.parallelStream().map(x -> x.getAge()).reduce(0, (Integer a, Integer b) ->  a+b) / list6.size());
-	
 	// Check whether each person in the list has at least one primary address
 	System.out.println(list.parallelStream().allMatch(item -> { Address[] x = item.getAddresses(); return x[0] != null; })); // returns true!
 	// Test my other list for validity -> Should return false
