@@ -63,6 +63,23 @@ public static void main(String[] args) {
 		//printPersons(pArray);
 		sortOld(pArray,f1);
 		
+		sortOld(pArray, p -> { boolean check = false;
+			while (check == false)
+			{
+				check = true;
+				for (int i = 0; i < p.length - 1; i++)
+				{
+					if (p[i].name.compareTo(p[i+1].name) > 0)
+					{
+						Person temp = p[i];
+						p[i] = p[i+1];
+						p[i+1] = temp;
+						check = false;
+					}
+				}
+			}
+			return p; });
+		
 		System.out.println("g".compareTo("s"));
 }
 
