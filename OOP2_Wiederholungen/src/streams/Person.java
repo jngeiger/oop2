@@ -61,9 +61,10 @@ public static void main(String[] args) {
 	}};
 	
 		//printPersons(pArray);
-		sortOld(pArray,f1);
-		
-		System.out.println("g".compareTo("s"));
+		//sortOld(pArray,f1);
+		System.out.println(Arrays.stream(pArray).map(x -> x.age).reduce(0,(x,y) -> x+y));
+		var average = Arrays.stream(pArray).map(x -> x.age).reduce(((sum, current) -> (sum + current))).map(x -> (x/(double)pArray.length)); 
+		System.out.println(average);
 }
 
 public static void printPersons(Person[] array)
