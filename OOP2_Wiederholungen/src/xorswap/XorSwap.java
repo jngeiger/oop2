@@ -12,14 +12,13 @@ public static void main(String[] args)
 	System.out.println(Arrays.toString(a2)); // [1, 2, 3]
 }
 
-public static <T> void swap(Integer[] arr1, Integer[] arr2)
+public static void swap(Integer[] a1, Integer[] a2)
 {
-	for (int i = 0; i < arr1.length; i++)
+	for (int i = 0; i < a1.length; i++)
 	{
-		arr1[i] = arr1[i] ^ arr2[i];
-		arr2[i] = arr1[i] ^ arr2[i];
-		arr1[i] = arr1[i] ^ arr2[i];
-		
+		a1[i] = a1[i] ^ a2[i];
+		a2[i] = a1[i] ^ a2[i];
+		a1[i] = a1[i] ^ a2[i];
 	}
 }
 }
