@@ -61,10 +61,40 @@ public static void main(String[] args) {
 	}};
 	
 		//printPersons(pArray);
+<<<<<<< HEAD
+<<<<<<< HEAD
+		sortOld(pArray,f1);
+		
+		sortOld(pArray, p -> { boolean check = false;
+			while (check == false)
+			{
+				check = true;
+				for (int i = 0; i < p.length - 1; i++)
+				{
+					if (p[i].name.compareTo(p[i+1].name) > 0)
+					{
+						Person temp = p[i];
+						p[i] = p[i+1];
+						p[i+1] = temp;
+						check = false;
+					}
+				}
+			}
+			return p; });
+		
+		System.out.println("g".compareTo("s"));
+=======
 		//sortOld(pArray,f1);
 		System.out.println(Arrays.stream(pArray).map(x -> x.age).reduce(0,(x,y) -> x+y));
 		var average = Arrays.stream(pArray).map(x -> x.age).reduce(((sum, current) -> (sum + current))).map(x -> (x/(double)pArray.length)); 
 		System.out.println(average);
+>>>>>>> branch 'master' of https://github.com/jngeiger/oop2.git
+=======
+		//sortOld(pArray,f1);
+		System.out.println(Arrays.stream(pArray).map(x -> x.age).reduce(0,(x,y) -> x+y));
+		var average = Arrays.stream(pArray).map(x -> x.age).reduce(((sum, current) -> (sum + current))).map(x -> (x/(double)pArray.length)); 
+		System.out.println(average);
+>>>>>>> branch 'master' of https://github.com/jngeiger/oop2.git
 }
 
 public static void printPersons(Person[] array)
