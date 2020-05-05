@@ -2,11 +2,33 @@
 
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 
 <GridPane xmlns:fx="taschenrechner" fx:controller="oop2.taschenrechner.TaschenrechnerController">
 	<children>
-		<Button fx:id="button" text="1"/> 
-	
+		<TextField  fx:id="tf1" editable="false"/>
+		<Button fx:id="button7" onAction="#enterNumber" text="7" GridPane.columnIndex="0" GridPane.rowIndex="1"/> 
+		<Button fx:id="button8" onAction="#enterNumber" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		<Button fx:id="button9" onAction="#enterNumber" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+		 
+		<Button fx:id="button4" onAction="#enterNumber" text="4" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+		<Button fx:id="button5" onAction="#enterNumber" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		<Button fx:id="button6" onAction="#enterNumber" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+		
+		<Button fx:id="button1" onAction="#enterNumber" text="1" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+		<Button fx:id="button2" onAction="#enterNumber" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+		<Button fx:id="button3" onAction="#enterNumber" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+			
 	</children>
 </GridPane>
+
+
+
+
+
+
+
+
+
+
 
