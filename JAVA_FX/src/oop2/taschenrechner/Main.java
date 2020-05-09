@@ -24,8 +24,6 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("Taschenrechner.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			TextField tf = new TextField();
-			tf.setEditable(false);
 		}
 		catch (Exception e)
 		{
