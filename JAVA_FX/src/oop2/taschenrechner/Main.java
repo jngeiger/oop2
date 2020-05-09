@@ -25,15 +25,6 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("Taschenrechner.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-<<<<<<< HEAD
-		}
-		catch (Exception e)
-		{
-			e.getStackTrace();
-		}
-=======
-			
->>>>>>> branch 'master' of https://github.com/jngeiger/oop2.git
-	}
 
+}
 }
