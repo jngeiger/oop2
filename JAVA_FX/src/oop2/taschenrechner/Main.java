@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -18,18 +20,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		try {
-			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Taschenrechner.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Taschenrechner.fxml"));
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("Taschenrechner.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			
-		}
-		catch (Exception e)
-		{
-			e.getStackTrace();
-		}
-	}
 
+}
 }
