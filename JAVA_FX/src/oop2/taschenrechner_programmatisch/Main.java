@@ -49,6 +49,7 @@ TextField txtResult = new TextField();
 		root.add(txtResult, 0, 0,3,1);
 		
 		
+		
 		// BUTTONS
 		for (int i = 0; i < 9; i++)
 		{

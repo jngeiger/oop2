@@ -10,7 +10,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop2.taschenrechner.TaschenrechnerController">
 	<top>
-	<TextField fx:id="tf1" text="0" />
+	<TextField fx:id="tf1" text="0" GridPane.rowSpan="1" GridPane.ColumnSpan="3"/>
 	</top>
 	<left>
 		<GridPane hgap="5" vgap="5">
