@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
@@ -7,12 +8,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="oop2.taschenrechner.TaschenrechnerController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop2.taschenrechner.TaschenrechnerController">
 	<top>
-	<TextField fx:id="tf1" text="0"/>
+	<TextField fx:id="tf1" text="0" />
 	</top>
 	<left>
-		<GridPane>
+		<GridPane hgap="5" vgap="5">
+		<padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>  
+         
 		
 		<Button fx:id="button7" onAction="#enterNumber7" text="7" GridPane.columnIndex="0" GridPane.rowIndex="1" /> 
 		<Button fx:id="button8" onAction="#enterNumber8" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -28,13 +33,13 @@
 		<Button fx:id="button0" onAction="#enterNumber0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 		
 		<Button fx:id="buttonplus" onAction="#addition" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-		<Button fx:id="buttonequals" onAction="#equals" defaultButton="true" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-		<Button fx:id="buttonminus" onAction="#subtraktion" text="-" GridPane.rowIndex="2" GridPane.columnIndex="3" />
-		<Button fx:id="clear" onAction="#allClear" text="C" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-		<Button fx:id="buttonmult" onAction="#multiplikation" text="*" GridPane.rowIndex="1" GridPane.columnIndex="3" />
-		<Button fx:id="buttondiv" onAction="#division" text="/" GridPane.rowIndex="0" GridPane.columnIndex="3" />
-      
+		<Button fx:id="buttonequals" defaultButton="true" onAction="#equals" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+		<Button fx:id="buttonminus" onAction="#subtraktion" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+		<Button fx:id="clear" onAction="#allClear" text="C" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+		<Button fx:id="buttonmult" onAction="#multiplikation" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+		<Button fx:id="buttondiv" onAction="#division" text="/" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+        
+         
 		</GridPane>
 	</left>
 </BorderPane>
- 
