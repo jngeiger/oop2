@@ -27,9 +27,12 @@
 		<Button fx:id="button3" onAction="#enterNumber3" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 		<Button fx:id="button0" onAction="#enterNumber0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 		
-		<Button fx:id="buttonplus" onAction="#addition" text="+" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-		<Button fx:id="buttonequals" onAction="#equals" text="=" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+		<Button fx:id="buttonplus" onAction="#addition" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+		<Button fx:id="buttonequals" onAction="#equals" defaultButton="true" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+		<Button fx:id="buttonminus" onAction="#subtraktion" text="-" GridPane.rowIndex="2" GridPane.columnIndex="3" />
 		<Button fx:id="clear" onAction="#allClear" text="C" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+		<Button fx:id="buttonmult" onAction="#multiplikation" text="*" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+		<Button fx:id="buttondiv" onAction="#division" text="/" GridPane.rowIndex="0" GridPane.columnIndex="3" />
       
 		</GridPane>
 	</left>
