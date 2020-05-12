@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+
+<BorderPane PrefHeight="400" PrefWidth="400" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="oop2.taschenrechner_borderpane.Taschenrechner_borderpaneController" >
+	<top>
+		<HBox>
+			<TextField fx:id="tf" editable="false" maxHeight="Infinity" prefHeight="75" prefWidth="100" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+			<Button fx:id="equals" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" VBox.vgrow="ALWAYS" text="="/>
+		</HBox>
+	</top>
+	<center>
+	<HBox>
+		<VBox fx:id="vb1" HBox.hgrow="ALWAYS">
+			<children>
+				<Button fx:id="7" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="7"  VBox.vgrow="ALWAYS"/>
+				<Button fx:id="4" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="4"  VBox.vgrow="ALWAYS"/>
+				<Button fx:id="1" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="1"  VBox.vgrow="ALWAYS"/>
+				<Button fx:id="0" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="0"  VBox.vgrow="ALWAYS"/>
+			</children>
+
+		</VBox>
+		<VBox fx:id="vb2" HBox.hgrow="ALWAYS">
+			<children>
+				<Button fx:id="8" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="8" VBox.vgrow="ALWAYS" />
+				<Button fx:id="5" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="5" VBox.vgrow="ALWAYS"/>
+				<Button fx:id="2" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="2" VBox.vgrow="ALWAYS"/>
+				<Button fx:id="revert" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="&lt;-" VBox.vgrow="ALWAYS"/>
+			</children>
+
+		</VBox>
+		<VBox fx:id="vb3" HBox.hgrow="ALWAYS">
+			<children>
+				<Button fx:id="9" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="9" VBox.vgrow="ALWAYS" />
+				<Button fx:id="6" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="6" VBox.vgrow="ALWAYS"/>
+				<Button fx:id="3" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="3" VBox.vgrow="ALWAYS"/>
+				<Button fx:id="C" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="C" VBox.vgrow="ALWAYS"/>
+			</children>
+
+		</VBox>
+		
+		<VBox fx:id="vb4" HBox.hgrow="ALWAYS">
+			<children>
+				<Button fx:id="plus" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="+" VBox.vgrow="ALWAYS" />
+				<Button fx:id="minus" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="-" VBox.vgrow="ALWAYS"/>
+				<Button fx:id="multiply" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="*" VBox.vgrow="ALWAYS"/>
+				<Button fx:id="divide" maxHeight="Infinity" maxWidth="Infinity" prefHeight="75" prefWidth="100" text="/" VBox.vgrow="ALWAYS"/>
+
+			</children>
+
+		</VBox>
+	</HBox>
+	</center>
+</BorderPane>

@@ -8,7 +8,7 @@ Double temp1 = 0.0;
 Double temp2 = 0.0;
 Double result = 0.0;
 int last = 4;
-boolean[] state = new boolean[5];
+boolean[] state = new boolean[4];
 	
 	@FXML
 	void enterNumber1()
