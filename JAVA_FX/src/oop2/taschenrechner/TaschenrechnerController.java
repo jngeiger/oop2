@@ -1,5 +1,7 @@
 package oop2.taschenrechner;
+import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class TaschenrechnerController {
@@ -8,59 +10,14 @@ Double temp1 = 0.0;
 Double temp2 = 0.0;
 Double result = 0.0;
 int last = 4;
+
+
 boolean[] state = new boolean[4];
-	
+
 	@FXML
-	void enterNumber1()
-	{	if (tf1Empty()) { fullClearText(); }
-		tf1.setText(tf1.getText() + "1"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber2()
-	{	if (tf1Empty()) { fullClearText(); }
-		tf1.setText(tf1.getText() + "2"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber3()
-		
-	{	if (tf1Empty()) { fullClearText(); }
-		tf1.setText(tf1.getText() + "3"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber4()
-	{	if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "4"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber5()
-	{	if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "5"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber6()
-	{	if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "6"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber7()
-	{	if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "7"); tf1.requestFocus(); }
-	
-	@FXML
-	void enterNumber8()
-	{	if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "8"); tf1.requestFocus();}
-	
-	@FXML
-	void enterNumber9()
-	{ if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "9"); tf1.requestFocus(); }
-	
-	@FXML
-	void enterNumber0()
-	{	if (tf1Empty()) { fullClearText(); }
-	tf1.setText(tf1.getText() + "0"); tf1.requestFocus();}
-	
+	void enterNumber(ActionEvent event)
+	{{	if (tf1Empty()) { fullClearText(); } tf1.setText(tf1.getText() + ((Button) event.getSource()).getText()); tf1.requestFocus();}}
+
 	@FXML
 	void addition()
 	{ temp1 = Double.valueOf(tf1.getText()); tf1.setText("0"); state[0] = true; tf1.requestFocus();}
