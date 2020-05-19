@@ -1,4 +1,4 @@
-package oop2.taschenrechner;
+package oop2.taschenrechner_properties;
 
 import javafx.application.Application;
 import javafx.beans.Observable;
@@ -27,10 +27,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Taschenrechner.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Taschenrechner_properties.fxml"));
+			
+			
 			
 			Scene scene = new Scene(root,130,200);
-			scene.getStylesheets().add(getClass().getResource("Taschenrechner.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("Taschenrechner_properties.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Calculator");
 			primaryStage.show();

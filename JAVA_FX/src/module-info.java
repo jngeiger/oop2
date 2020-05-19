@@ -9,6 +9,8 @@ module OOP2_JAVA_FX_2 {
 	exports oop2.schachtel;
 	exports oop2.taschenrechner_programmatisch;
 	exports oop2.taschenrechner_grid;
+	exports oop2.taschenrechner_properties;
+	opens oop2.taschenrechner_properties;
 	opens oop2.schachtel;
 	opens oop2.taschenrechner;
 	opens oop2.taschenrechner_programmatisch;
