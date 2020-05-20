@@ -1,8 +1,9 @@
 module OOP2_JAVA_FX_2 {
-	requires javafx.base;
+	requires transitive javafx.base;
 	requires javafx.fxml;
 	requires javafx.controls;
 	requires javafx.graphics;
+	
 	
 	exports oop2.taschenrechner_borderpane;
 	exports oop2.taschenrechner;

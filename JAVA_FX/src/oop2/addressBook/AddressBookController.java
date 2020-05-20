@@ -8,22 +8,34 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class AddressBookController implements Initializable {
-	private ObservableList<Person> list;
-
+	@FXML private TableView<Person> tableView;
+    @FXML private TextField tf1;
+    @FXML private TextField tf2;
+    @FXML private TextField tf3;
+    
+    @FXML
+    protected void addPerson(ActionEvent event) {
+        ObservableList<Person> data = tableView.getItems();
+        data.add(new Person(tf1.getText(),
+            tf2.getText(),
+            tf3.getText()
+        ));
+        
+        tf1.setText("");
+        tf2.setText("");
+        tf3.setText("");   
+    }
+    
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		list = FXCollections.observableArrayList();
-		list.add(new Person("test", "test", "test"));
-		System.out.println(list.get(0));
+	
 
-	}
-
-	public static void main(String[] args) {
-		new AddressBookController().initialize(null, null);
 	}
 
 }

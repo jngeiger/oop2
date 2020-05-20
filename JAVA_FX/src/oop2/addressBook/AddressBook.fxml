@@ -12,6 +12,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import oop2.addressBook.Person?>
+<?import oop2.addressBook.Fantasie?>
 
 <VBox xmlns:fx="javafx" fx:controller="oop2.addressBook.AddressBookController">
 <HBox> 
@@ -19,21 +23,35 @@
 	<Button fx:id="btn1" text="New"/>
 	<Button fx:id="btn2" text="Delete"/>
 </HBox>
-	<TableView>
+	<TableView fx:id="tableView">
  	<columns>
-          <TableColumn text="First Name">
+          <TableColumn text="First Name"> <cellValueFactory><PropertyValueFactory property="firstName" /> </cellValueFactory>
           </TableColumn>
-          <TableColumn text="Last Name">
+          <TableColumn text="Last Name"> <cellValueFactory><PropertyValueFactory property="lastName" /> </cellValueFactory>
           </TableColumn>
-          <TableColumn text="Email Address">
+          <TableColumn text="Email Address"> <cellValueFactory><PropertyValueFactory property="email" /> </cellValueFactory>
           </TableColumn>
      </columns>   
+     <items>
+    <FXCollections fx:factory="observableArrayList">
+        <Person firstName="Jacob" lastName="Smith"  
+             email="jacob.smith@example.com"/>
+        <Person firstName="Isabella" lastName="Johnson" 
+             email="isabella.johnson@example.com"/>
+        <Person firstName="Ethan" lastName="Williams" 
+             email="ethan.williams@example.com"/>
+        <Person firstName="Emma" lastName="Jones"
+             email="emma.jones@example.com"/>
+        <Person firstName="Michael" lastName="Brown" 
+             email="michael.brown@example.com"/>
+    </FXCollections>
+	</items>
 </TableView>
 
 <HBox>
 <TextField fx:id="tf1"/>
 <TextField fx:id="tf2"/>
 <TextField fx:id="tf3"/>
-<Button fx:id="btn3" text="Save"/>
+<Button fx:id="btn3" text="add" onAction="#addPerson"/>
 </HBox>
 </VBox>

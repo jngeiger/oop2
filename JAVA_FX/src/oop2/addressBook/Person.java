@@ -3,23 +3,44 @@ package oop2.addressBook;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Person {
-private SimpleStringProperty firstName;
-private SimpleStringProperty lastName;
-private SimpleStringProperty email;
+SimpleStringProperty firstName = new SimpleStringProperty("");
+SimpleStringProperty lastName = new SimpleStringProperty("");
+SimpleStringProperty email = new SimpleStringProperty("");
 
-public Person(String f, String n, String e)
+public Person()
+{}
+
+public Person(String f, String n, String l)
 {
-	firstName = new SimpleStringProperty(f);
-	lastName = new SimpleStringProperty(n);
-	firstName = new SimpleStringProperty(e);
+	firstName.set(f);
+	lastName.set(n);
+	email.set(l);
 }
 
-public SimpleStringProperty getFirstName()
-{ return this.firstName; }
+public String getLastName()
+{
+	return lastName.get();
+}
+public String getFirstName()
+{
+	return firstName.get();
+}
+public String getEmail()
+{
+	return email.get();
+}
 
-public SimpleStringProperty getLastName()
-{ return this.lastName; }
+public void setLastName(String f)
+{
+	lastName.set(f);
+}
+public void setFirstName(String f)
+{
+	firstName.set(f);
+}
+public void setEmail(String f)
+{
+	email.set(f);
+}
 
-public SimpleStringProperty getEmail()
-{ return this.email; }
 }
