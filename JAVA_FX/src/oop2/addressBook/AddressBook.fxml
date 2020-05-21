@@ -20,8 +20,9 @@
 <VBox xmlns:fx="javafx" fx:controller="oop2.addressBook.AddressBookController">
 <HBox> 
 	<Label text="Address Book"></Label>
-	<Button fx:id="btn1" text="New"/>
-	<Button fx:id="btn2" text="Delete"/>
+	<Button fx:id="btn1" text="New" onAction="#newMode" />
+	<Button fx:id="btn2" text="Delete" onAction="#deleteField"/>
+	<Button fx:id="btn4" text="debug" onAction="#debug"/>
 </HBox>
 	<TableView fx:id="tableView">
  	<columns>
@@ -33,18 +34,7 @@
           </TableColumn>
      </columns>   
      <items>
-    <FXCollections fx:factory="observableArrayList">
-        <Person firstName="Jacob" lastName="Smith"  
-             email="jacob.smith@example.com"/>
-        <Person firstName="Isabella" lastName="Johnson" 
-             email="isabella.johnson@example.com"/>
-        <Person firstName="Ethan" lastName="Williams" 
-             email="ethan.williams@example.com"/>
-        <Person firstName="Emma" lastName="Jones"
-             email="emma.jones@example.com"/>
-        <Person firstName="Michael" lastName="Brown" 
-             email="michael.brown@example.com"/>
-    </FXCollections>
+    
 	</items>
 </TableView>
 
@@ -52,6 +42,6 @@
 <TextField fx:id="tf1"/>
 <TextField fx:id="tf2"/>
 <TextField fx:id="tf3"/>
-<Button fx:id="btn3" text="add" onAction="#addPerson"/>
+<Button fx:id="btn3" text="Speichern" onAction="#addPerson"/>
 </HBox>
 </VBox>

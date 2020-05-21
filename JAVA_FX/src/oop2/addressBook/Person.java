@@ -43,4 +43,17 @@ public void setEmail(String f)
 	email.set(f);
 }
 
+public SimpleStringProperty firstNameProperty()
+{
+	return firstName;
+}
+public SimpleStringProperty lastNameProperty()
+{
+	return lastName;
+}
+public SimpleStringProperty emailProperty()
+{
+	return email;
+}
+
 }

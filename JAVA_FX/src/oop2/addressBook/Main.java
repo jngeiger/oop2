@@ -1,5 +1,7 @@
 package oop2.addressBook;
 
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -39,7 +41,6 @@ public class Main extends Application {
 		scene.getStylesheets().add(getClass().getResource("AddressBook.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
 		
 }
 }
