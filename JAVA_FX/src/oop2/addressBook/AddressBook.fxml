@@ -23,6 +23,7 @@
 	<Button fx:id="btn1" text="New" onAction="#newMode" />
 	<Button fx:id="btn2" text="Delete" onAction="#deleteField"/>
 	<Button fx:id="btn4" text="debug" onAction="#debug"/>
+	<Button fx:id="btn5" text="sortByFirstName" onAction="#sortByFirstName"/>
 </HBox>
 	<TableView fx:id="tableView">
  	<columns>

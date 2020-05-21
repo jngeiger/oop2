@@ -49,7 +49,13 @@ public class AddressBookController implements Initializable {
     		
     	}
     }
-    
+    @FXML
+    protected void sortByFirstName()
+    {
+    	ObservableList<Person> data = tableView.getItems();
+    	data.sort((x,y) -> x.getFirstName().compareTo(y.getFirstName()));
+    }
+   
     @FXML
     protected void newMode()
     {
