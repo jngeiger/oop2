@@ -15,7 +15,7 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import oop2.addressBook.Person?>
-<?import oop2.addressBook.Fantasie?>
+
 
 <VBox xmlns:fx="javafx" fx:controller="oop2.addressBook.AddressBookController">
 <HBox> 

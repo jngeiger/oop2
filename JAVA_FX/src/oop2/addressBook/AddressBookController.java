@@ -69,13 +69,13 @@ public class AddressBookController implements Initializable {
     protected void addPerson(ActionEvent event) {
         ObservableList<Person> data = tableView.getItems();
         
+        
         if (tableView.getSelectionModel().getSelectedIndex() != -1)
         {
         	Person p = data.get(tableView.getSelectionModel().getSelectedIndex());
         	p.setFirstName(tf1.getText());
         	p.setLastName(tf2.getText());
         	p.setEmail(tf3.getText());
-        	tableView.refresh();
         }
         
         else {
@@ -100,6 +100,7 @@ public class AddressBookController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
 		
 		ArrayList<Person> list = new ArrayList<Person>();
 		list.add(new Person("Jacob","Smith","jacob.smith@example.com"));
@@ -127,7 +128,7 @@ public class AddressBookController implements Initializable {
         selectedPerson.firstNameProperty().addListener((obs,o,n) -> tf1.setText(n));
         selectedPerson.lastNameProperty().addListener((obs,o,n) -> tf2.setText(n));
         selectedPerson.emailProperty().addListener((obs,o,n) -> tf3.setText(n));
-        
+        System.out.println(tableView.getItems().getClass());
        
 	
 
