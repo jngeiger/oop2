@@ -40,6 +40,7 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("AddressBook.css").toExternalForm());
 		primaryStage.setScene(scene);
+		primaryStage.setTitle("Addressbuch v0.1");
 		primaryStage.show();
 		
 }
