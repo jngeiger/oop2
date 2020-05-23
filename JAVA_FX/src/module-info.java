@@ -12,6 +12,7 @@ module OOP2_JAVA_FX_2 {
 	exports oop2.taschenrechner_grid;
 	exports oop2.taschenrechner_properties;
 	exports oop2.addressBook;
+	exports oop2.addressBook2;
 	opens oop2.taschenrechner_properties;
 	opens oop2.schachtel;
 	opens oop2.taschenrechner;
@@ -19,4 +20,5 @@ module OOP2_JAVA_FX_2 {
 	opens oop2.taschenrechner_grid;
 	opens oop2.taschenrechner_borderpane;
 	opens oop2.addressBook;
+	opens oop2.addressBook2;
 }
