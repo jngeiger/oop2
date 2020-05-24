@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import oop2.addressBook2.Person?>
+
+<GridPane xmlns:fx="javafx" fx:controller="oop2.addressBookUebung.AddressBookUebungController">
+<padding> <Insets top="5.0" bottom="5.0" left="5.0" right="5.0"/> </padding>
+<Label fx:id="label" text="Address Book" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+<TableView fx:id="tv">
+<columns>
+<TableColumn text="FirstName"> <cellValueFactory> <PropertyValueFactory property="email" /> </cellValueFactory></TableColumn>
+
+
+
+</columns>
+
+</TableView>
+</GridPane>
+
+
