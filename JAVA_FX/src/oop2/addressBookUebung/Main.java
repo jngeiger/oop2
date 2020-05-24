@@ -23,8 +23,20 @@ public void start(Stage primaryStage) throws Exception {
 	Parent root = FXMLLoader.load(getClass().getResource("AddressBookUebung.fxml"));
 	Scene scene = new Scene(root);
 	scene.getStylesheets().add(getClass().getResource("AddressBookUebung.css").toExternalForm());
+	
+	
+	TableView<Person> tv1 = new TableView<Person>();
+	TableColumn<Person,String> fn = new TableColumn<Person,String>("First Name");
+	fn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+	tv1.getColumns().add(fn);
+	tv1.getItems().add(new Person("Max","Mustermann","mm@mm.de"));
+	((GridPane) root).getChildren().add(tv1);
+	GridPane.setRowIndex(tv1, 5);
 	primaryStage.setScene(scene);
 	primaryStage.show();
+	
+
+	
 	
 	
 }

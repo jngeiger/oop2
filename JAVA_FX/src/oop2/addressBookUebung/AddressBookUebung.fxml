@@ -19,15 +19,7 @@
 <GridPane xmlns:fx="javafx" fx:controller="oop2.addressBookUebung.AddressBookUebungController">
 <padding> <Insets top="5.0" bottom="5.0" left="5.0" right="5.0"/> </padding>
 <Label fx:id="label" text="Address Book" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-<TableView fx:id="tv">
-<columns>
-<TableColumn text="FirstName"> <cellValueFactory> <PropertyValueFactory property="email" /> </cellValueFactory></TableColumn>
 
-
-
-</columns>
-
-</TableView>
 </GridPane>
 
 
