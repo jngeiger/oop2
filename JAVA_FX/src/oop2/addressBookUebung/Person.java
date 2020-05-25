@@ -31,7 +31,7 @@ public void setLastName(String l)
 
 public void setEmail(String e)
 {
-	firstName.set(e);
+	email.set(e);
 }
 
 public SimpleStringProperty emailProperty()
@@ -62,6 +62,12 @@ public String getLastName()
 public String getEmail()
 {
 	return email.get();
+}
+
+public Person copy(Person p)
+{
+	Person x = new Person(p.getFirstName(),p.getLastName(),p.getEmail());
+	return x;
 }
 }
 

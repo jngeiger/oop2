@@ -18,7 +18,24 @@
 
 <GridPane xmlns:fx="javafx" fx:controller="oop2.addressBookUebung.AddressBookUebungController">
 <padding> <Insets top="5.0" bottom="5.0" left="5.0" right="5.0"/> </padding>
-<Label fx:id="label" text="Address Book" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+<HBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+<Label fx:id="label" text="Address Book"/>
+<Button fx:id="newBtn" text="New" />
+<Button fx:id="deleteBtn" onAction="#delete" text="Delete" />
+</HBox>
+<TableView fx:id="tv" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+<columns>
+	<TableColumn text="First Name"><cellValueFactory><PropertyValueFactory property="firstName"/></cellValueFactory></TableColumn>
+	<TableColumn text="Last Name"><cellValueFactory><PropertyValueFactory property="lastName"/></cellValueFactory></TableColumn>
+	<TableColumn text="Email"><cellValueFactory><PropertyValueFactory property="email"/></cellValueFactory></TableColumn>
+</columns>
+</TableView>
+
+<TextField fx:id="tf1" promptText="First Name" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS" />
+<TextField fx:id="tf2" promptText="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS"  />
+<TextField fx:id="tf3" promptText="Email" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS"  />
+<Button fx:id="saveBtn" onAction="#save" text="Save" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS" />
+
 
 </GridPane>
 
