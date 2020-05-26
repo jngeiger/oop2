@@ -21,7 +21,7 @@
 <HBox GridPane.columnIndex="0" GridPane.rowIndex="0">
 <Label fx:id="label" text="Address Book"/>
 <Button fx:id="newBtn" text="New" />
-<Button fx:id="deleteBtn" onAction="#delete" text="Delete" />
+<Button fx:id="deleteBtn" disable="true" onAction="#delete" text="Delete" />
 </HBox>
 <TableView fx:id="tv" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
 <columns>
