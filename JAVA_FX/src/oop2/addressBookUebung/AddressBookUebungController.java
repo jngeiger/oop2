@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.text.Text;
 
 public class AddressBookUebungController implements Initializable {
 @FXML private TableView<Person> tv;
@@ -22,9 +26,14 @@ private ObservableList<Person> data;
 @FXML private TextField tf2;
 @FXML private TextField tf3;
 @FXML private Button deleteBtn;
+@FXML private Button saveBtn;
+@FXML private Text ctrlText;
 private Person selectedPerson;
-
-
+private SimpleBooleanProperty isSelected = new SimpleBooleanProperty(false);
+private SimpleBooleanProperty allTfSelected = new SimpleBooleanProperty(false);
+private SimpleBooleanProperty tf1WasFocused = new SimpleBooleanProperty(false);
+private SimpleBooleanProperty tf2WasFocused = new SimpleBooleanProperty(false);
+private SimpleBooleanProperty tf3WasFocused = new SimpleBooleanProperty(false);
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resource)
@@ -37,7 +46,34 @@ private Person selectedPerson;
 		tf2.textProperty().bindBidirectional(selectedPerson.lastName);
 		tf3.textProperty().bindBidirectional(selectedPerson.email);
 		
+		isSelected.bind(tv.getSelectionModel().selectedIndexProperty().greaterThan(-1));
+		ctrlText.textProperty().bind(Bindings.when(isSelected).then("Edit Mode").otherwise("Create Mode"));
 		
+		allTfSelected.bind(Bindings.when(tf1.textProperty().isNotEmpty().and(tf2.textProperty().isNotEmpty().and(tf3.textProperty().isNotEmpty()))).then(true).otherwise(false));
+		saveBtn.disableProperty().bind(allTfSelected.not());
+		
+
+		tf1.focusedProperty().addListener((obs,o,n) -> {
+			if (!n == false)
+				tf1WasFocused.set(true);
+		});
+		
+		tf2.focusedProperty().addListener((obs,o,n) -> {
+			if (!n == false)
+				tf2WasFocused.set(true);
+		});
+		
+		tf3.focusedProperty().addListener((obs,o,n) -> {
+			if (!n == false)
+				tf3WasFocused.set(true);
+		});
+
+		
+		
+		
+		tf1.styleProperty().bind(Bindings.when(tf1.textProperty().isEmpty().and(tf1WasFocused)).then("-fx-border-color: red;").otherwise(""));
+		tf2.styleProperty().bind(Bindings.when(tf2.textProperty().isEmpty().and(tf2WasFocused)).then("-fx-border-color: red;").otherwise(""));
+		tf3.styleProperty().bind(Bindings.when(tf3.textProperty().isEmpty().and(tf3WasFocused)).then("-fx-border-color: red;").otherwise(""));
 		
 		deleteBtn.disableProperty().bind(tv.getSelectionModel().selectedItemProperty().isNull());
 		
@@ -65,7 +101,6 @@ private Person selectedPerson;
 		data.remove(tv.getSelectionModel().getSelectedIndex());
 		}
 		tf1.setText("");
-		clearTf();
 	}
 	
 	public void save()
@@ -84,6 +119,9 @@ private Person selectedPerson;
 	public void clearSelection()
 	{
 		tv.getSelectionModel().clearSelection();
+		tf1WasFocused.set(false);
+		tf2WasFocused.set(false);
+		tf3WasFocused.set(false);
 	}
 	
 	public void clearTf()
@@ -91,6 +129,12 @@ private Person selectedPerson;
 		tf1.setText("");
 		tf2.setText("");
 		tf3.setText("");
+	}
+	
+	public void newMode()
+	{
+		clearTf();
+		clearSelection();
 	}
 
 }
