@@ -1,8 +1,16 @@
 package oop2.addressBookUebung;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -18,6 +26,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class AddressBookUebungController implements Initializable {
 @FXML private TableView<Person> tv;
@@ -34,7 +44,9 @@ private SimpleBooleanProperty allTfSelected = new SimpleBooleanProperty(false);
 private SimpleBooleanProperty tf1WasFocused = new SimpleBooleanProperty(false);
 private SimpleBooleanProperty tf2WasFocused = new SimpleBooleanProperty(false);
 private SimpleBooleanProperty tf3WasFocused = new SimpleBooleanProperty(false);
-	
+private Stage stage;
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resource)
 	{
@@ -135,6 +147,62 @@ private SimpleBooleanProperty tf3WasFocused = new SimpleBooleanProperty(false);
 	{
 		clearTf();
 		clearSelection();
+	}
+	
+	public void close()
+	{
+		Platform.exit();
+	}
+	
+	@FXML 
+	public void saveState()
+	{
+		FileChooser fc = new FileChooser();
+		fc.setTitle("Save State");
+		File selectedFile = fc.showSaveDialog(getStage());
+		if (selectedFile != null)
+		{
+			try (ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(selectedFile)))
+			{
+				for (Person p : tv.getItems())
+				{
+					oout.writeObject(p);
+				}
+			} 
+			catch (EOFException e) {}
+			catch (IOException e) {e.printStackTrace();}
+		}
+		
+	}
+	
+	@FXML 
+	public void loadState() throws ClassNotFoundException
+	{
+		FileChooser fc = new FileChooser();
+		fc.setTitle("Load State");
+		File selectedFile = fc.showOpenDialog(getStage());
+		if (selectedFile != null)
+		{
+			tv.getItems().removeAll();
+			try (ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile)))
+			{
+				while (oin.readObject() != null)
+				tv.getItems().add((Person)oin.readObject());
+			} 
+			catch (EOFException e) {}
+			catch (IOException e) {e.printStackTrace();}
+		}
+		
+	}
+	
+	
+	public void setStage(Stage someStage)
+	{
+		stage = someStage;
+	}
+	public Stage getStage()
+	{
+		return stage;
 	}
 
 }

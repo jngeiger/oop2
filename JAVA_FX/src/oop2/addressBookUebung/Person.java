@@ -1,11 +1,19 @@
 package oop2.addressBookUebung;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import javafx.beans.property.SimpleStringProperty;
 
-public class Person {
-SimpleStringProperty firstName;
-SimpleStringProperty lastName;
-SimpleStringProperty email;
+
+public class Person implements Serializable {
+public transient SimpleStringProperty firstName;
+public transient SimpleStringProperty lastName;
+public transient SimpleStringProperty email;
+
+
 
 public Person()
 {
@@ -69,6 +77,24 @@ public Person copy(Person p)
 	Person x = new Person(p.getFirstName(),p.getLastName(),p.getEmail());
 	return x;
 }
+
+private void writeObject(ObjectOutputStream s) throws IOException 
+{
+	s.defaultWriteObject();
+    s.writeUTF(getFirstName());
+    s.writeUTF(getLastName());
+    s.writeUTF(getEmail());
+}
+
+private void readObject(ObjectInputStream s) throws ClassNotFoundException, IOException 
+{       
+	s.defaultReadObject();
+	this.setFirstName(s.readUTF());
+	this.setLastName(s.readUTF());
+	this.setEmail(s.readUTF());
+}
+
+
 }
 
 
