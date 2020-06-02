@@ -49,7 +49,6 @@ private Stage stage;
 	public void initialize(URL location, ResourceBundle resource)
 	{
 		data = tv.getItems();
-		data.add(new Person("Max","Mustermann","mm@test.de"));
 		
 		selectedPerson = new Person();
 		tf1.textProperty().bindBidirectional(selectedPerson.firstName);
@@ -184,9 +183,12 @@ private Stage stage;
 			try 
 			{
 				ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile));
-//				tv.getItems().add((Person)oin.readObject());
-				Person p = (Person)oin.readObject();
-				oin.close();
+			
+				while (true)
+				{
+				tv.getItems().add((Person)oin.readObject());
+				}
+			
 			}	
 			catch (EOFException e) {}
 			catch (IOException e) {e.printStackTrace();}
