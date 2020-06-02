@@ -89,9 +89,9 @@ private void writeObject(ObjectOutputStream s) throws IOException
 private void readObject(ObjectInputStream s) throws ClassNotFoundException, IOException 
 {       
 	s.defaultReadObject();
-	this.setFirstName(s.readUTF());
-	this.setLastName(s.readUTF());
-	this.setEmail(s.readUTF());
+	setFirstName(s.readUTF());
+	setLastName(s.readUTF());
+	setEmail(s.readUTF());
 }
 
 

@@ -8,13 +8,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -183,12 +181,13 @@ private Stage stage;
 		File selectedFile = fc.showOpenDialog(getStage());
 		if (selectedFile != null)
 		{
-			tv.getItems().removeAll();
-			try (ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile)))
+			try 
 			{
-				while (oin.readObject() != null)
-				tv.getItems().add((Person)oin.readObject());
-			} 
+				ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile));
+//				tv.getItems().add((Person)oin.readObject());
+				Person p = (Person)oin.readObject();
+				oin.close();
+			}	
 			catch (EOFException e) {}
 			catch (IOException e) {e.printStackTrace();}
 		}
