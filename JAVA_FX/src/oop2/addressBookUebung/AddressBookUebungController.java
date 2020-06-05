@@ -127,7 +127,6 @@ private Stage stage;
 		tv.getSelectionModel().getSelectedIndex();
 		data.remove(tv.getSelectionModel().getSelectedIndex());
 		}
-		tf1.setText("");
 	}
 	
 	public void save()
@@ -183,9 +182,18 @@ private Stage stage;
 				{
 					oout.writeObject(p);
 				}
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Erfolg");
+				alert.setHeaderText(tv.getItems().size() + " Elemente geschrieben");
+				alert.showAndWait();
 			} 
 			catch (EOFException e) {}
 			catch (IOException e) {e.printStackTrace();}
+			catch (Exception e) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setHeaderText("ERROR");
+				alert.showAndWait();
+			}
 		}
 		
 	}
@@ -209,8 +217,6 @@ private Stage stage;
 					tv.getItems().add((Person)oin.readObject());
 					count++;
 				}
-				
-			
 			}
 			
 			catch (EOFException e) {showLoadAlert(count,true);}

@@ -1,6 +1,5 @@
 package oop2.addressBookUebung;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -22,11 +21,10 @@ private TextField tf3;
 private Label fn;
 private Label ln;
 private Label em;
-private ButtonType bt;
+
 
 public MyDialog (Stage primaryStage) {
-//	super();
-//	initOwner(primaryStage);
+
 	root = new BorderPane();
 	
 	tf1 = new TextField();
@@ -38,7 +36,6 @@ public MyDialog (Stage primaryStage) {
 	em = new Label("Email");
 	VBox vb = new VBox();
 	
-	HBox bottom = new HBox();
 	hb1 = new HBox();
 	hb2 = new HBox();
 	hb3 = new HBox();
@@ -51,16 +48,12 @@ public MyDialog (Stage primaryStage) {
 	root.setCenter(vb);
 	this.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
 	this.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
+	
 	getDialogPane().setContent(root);
 	
 	
 }
 
-
-public void selectCancel()
-{
-	
-}
 
 public void sendTableView(TableView<Person> tv)
 {
