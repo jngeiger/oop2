@@ -29,29 +29,23 @@ public Person(String f, String l, String e)
 
 public void setFirstName(String f)
 {
-	if (this.firstName != null) {
+
 	    this.firstName.set(f);
-	} else {
-	    this.firstName = new SimpleStringProperty(f);
-	}
+
 }
 
 public void setLastName(String l)
 {
-	if (this.lastName != null) {
+
 	    this.lastName.set(l);
-	} else {
-	    this.lastName = new SimpleStringProperty(l);
-	}
+
 }
 
 public void setEmail(String e)
 {
-	if (this.email != null) {
+
 	    this.email.set(e);
-	} else {
-	    this.email = new SimpleStringProperty(e);
-	}
+
 }
 
 public SimpleStringProperty emailProperty()
@@ -92,15 +86,15 @@ public Person copy(Person p)
 
 private void writeObject(ObjectOutputStream s) throws IOException 
 {
-	s.defaultWriteObject();
-    s.writeUTF(getFirstName());
-    s.writeUTF(getLastName());
-    s.writeUTF(getEmail());
+	
+    s.writeUTF(firstName.getValueSafe());
+    s.writeUTF(lastName.getValueSafe());
+    s.writeUTF(email.getValueSafe());
 }
 
 private void readObject(ObjectInputStream s) throws ClassNotFoundException, IOException 
 {       
-	s.defaultReadObject();
+	
 	setFirstName(s.readUTF());
 	setLastName(s.readUTF());
 	setEmail(s.readUTF());

@@ -183,11 +183,8 @@ private Stage stage;
 			try 
 			{
 				ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile));
-			
-				while (true)
-				{
-				tv.getItems().add((Person)oin.readObject());
-				}
+				System.out.println(oin.readObject());
+
 			
 			}	
 			catch (EOFException e) {}
