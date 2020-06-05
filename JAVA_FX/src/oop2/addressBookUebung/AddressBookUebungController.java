@@ -9,12 +9,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -23,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -95,6 +98,21 @@ private Stage stage;
 			selectedPerson.setFirstName(n.getFirstName());
 			selectedPerson.setLastName(n.getLastName());
 			selectedPerson.setEmail(n.getEmail());
+		});
+		MyDialog dialog = new MyDialog(getStage());
+		tv.setOnMouseClicked(e -> {
+			if (e.getClickCount() >= 2 && tv.getSelectionModel().getSelectedIndex() != -1)
+			{
+				dialog.sendTableView(tv);
+				Optional<ButtonType> opt = dialog.showAndWait(); 
+				if (opt.get() == ButtonType.APPLY)
+				{
+					int index = tv.getSelectionModel().getSelectedIndex();
+					tv.getItems().set(tv.getSelectionModel().getSelectedIndex(), dialog.getSelectedPerson());
+				    tv.getSelectionModel().select(index);
+				    tv.getFocusModel().focus(index);
+				}
+			}
 		});
 		
 		
@@ -183,6 +201,7 @@ private Stage stage;
 		{
 			try 
 			{
+				tv.getItems().clear();
 				count = 0;
 				ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile));
 				while(true)
