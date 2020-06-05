@@ -9,9 +9,9 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class Person implements Serializable {
-public transient SimpleStringProperty firstName = new SimpleStringProperty("");
-public transient SimpleStringProperty lastName  = new SimpleStringProperty("");
-public transient SimpleStringProperty email  = new SimpleStringProperty("");
+public SimpleStringProperty firstName = new SimpleStringProperty("");
+public SimpleStringProperty lastName  = new SimpleStringProperty("");
+public SimpleStringProperty email  = new SimpleStringProperty("");
 
 
 
@@ -22,9 +22,9 @@ public Person()
 
 public Person(String f, String l, String e)
 {
-	firstName = new SimpleStringProperty(f);
-	lastName = new SimpleStringProperty(l);
-	email = new SimpleStringProperty(e);
+	firstName.set(f);
+	lastName.set(l);
+	email.set(e);
 }
 
 public void setFirstName(String f)
@@ -95,9 +95,9 @@ private void writeObject(ObjectOutputStream s) throws IOException
 private void readObject(ObjectInputStream s) throws ClassNotFoundException, IOException 
 {       
 	
-	setFirstName(s.readUTF());
-	setLastName(s.readUTF());
-	setEmail(s.readUTF());
+	firstName = new SimpleStringProperty(s.readUTF());
+	lastName = new SimpleStringProperty(s.readUTF());
+	email = new SimpleStringProperty(s.readUTF());
 }
 
 

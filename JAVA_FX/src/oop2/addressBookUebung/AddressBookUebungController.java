@@ -175,6 +175,7 @@ private Stage stage;
 	@FXML 
 	public void loadState() throws ClassNotFoundException
 	{
+		int count = 0;
 		FileChooser fc = new FileChooser();
 		fc.setTitle("Load State");
 		File selectedFile = fc.showOpenDialog(getStage());
@@ -182,17 +183,39 @@ private Stage stage;
 		{
 			try 
 			{
+				count = 0;
 				ObjectInputStream oin = new ObjectInputStream(new FileInputStream(selectedFile));
-				System.out.println(oin.readObject());
-
+				while(true)
+				{
+					tv.getItems().add((Person)oin.readObject());
+					count++;
+				}
+				
 			
-			}	
-			catch (EOFException e) {}
-			catch (IOException e) {e.printStackTrace();}
+			}
+			
+			catch (EOFException e) {showLoadAlert(count,true);}
+			catch (Exception e) { showLoadAlert(count, false); }
 		}
 		
 	}
 	
+	public void showLoadAlert(int count, boolean value)
+	{
+		Alert a = new Alert(AlertType.INFORMATION);
+		if (value)
+		{
+		a.setTitle("Erfolgreich");
+		a.setHeaderText("Erfolgreich");
+		a.setContentText(String.valueOf(count + " Elemente kopiert"));
+		}
+		else {
+			a.setTitle("Fehler");
+			a.setHeaderText("Fehler");
+			a.setContentText(String.valueOf("Keine Elemente kopiert"));
+		}
+		a.showAndWait();
+	}
 	
 	public void setStage(Stage someStage)
 	{
