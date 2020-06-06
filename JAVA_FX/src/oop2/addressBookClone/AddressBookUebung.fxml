@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Menu?>
+
+
+
+<GridPane xmlns:fx="javafx" fx:controller="oop2.addressBookClone.AddressBookUebungController">
+<padding> <Insets top="5.0" bottom="5.0" left="5.0" right="5.0"/> </padding>
+
+<MenuBar GridPane.columnSpan="5">
+	<Menu text="File">
+		<MenuItem text="Open" onAction="#loadState"></MenuItem>
+		<MenuItem text="Save" onAction="#saveState"> </MenuItem>
+		<MenuItem text="Close" onAction="#close"> </MenuItem>
+	</Menu>
+	<Menu text="Help"></Menu>
+</MenuBar>
+
+<HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+<Label fx:id="label" text="Address Book"/>
+<Button fx:id="newBtn" onAction="#newMode" text="New" />
+<Button fx:id="deleteBtn" disable="true" onAction="#delete" text="Delete" />
+</HBox>
+<TableView onMousePressed="#action1" fx:id="tv" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="5" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+<columns>
+	<TableColumn text="First Name"><cellValueFactory><PropertyValueFactory property="firstName"/></cellValueFactory></TableColumn>
+	<TableColumn text="Last Name"><cellValueFactory><PropertyValueFactory property="lastName"/></cellValueFactory></TableColumn>
+	<TableColumn text="Email"><cellValueFactory><PropertyValueFactory property="email"/></cellValueFactory></TableColumn>
+</columns>
+</TableView>
+
+<Text fx:id="ctrlText" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS"></Text>
+<TextField fx:id="tf1" promptText="First Name" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS" />
+<TextField fx:id="tf2" promptText="Last Name" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS"  />
+<TextField fx:id="tf3" promptText="Email" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS"  />
+<Button fx:id="saveBtn" onAction="#save" text="Save" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS" />
+
+
+</GridPane>
+
+

@@ -15,6 +15,9 @@ module OOP2_JAVA_FX_2 {
 	exports oop2.addressBook2;
 	exports oop2.addressBookUebung;
 	exports oop2.shapes;
+	exports oop2.addressBookClone;
+	
+	opens oop2.addressBookClone;
 	opens oop2.taschenrechner_properties;
 	opens oop2.schachtel;
 	opens oop2.taschenrechner;
