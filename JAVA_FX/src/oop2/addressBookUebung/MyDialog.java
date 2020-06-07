@@ -62,7 +62,6 @@ public void sendTableView(TableView<Person> tv)
 	p.setLastName(tv.getSelectionModel().getSelectedItem().getLastName());
 	p.setEmail(tv.getSelectionModel().getSelectedItem().getEmail());
 	
-	
 	tf1.textProperty().bindBidirectional(p.firstNameProperty());
 	tf2.textProperty().bindBidirectional(p.lastNameProperty());
 	tf3.textProperty().bindBidirectional(p.emailProperty());
