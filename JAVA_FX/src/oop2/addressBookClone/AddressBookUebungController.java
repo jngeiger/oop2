@@ -113,7 +113,7 @@ private Stage stage;
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.showAndWait();
 		if (alert.getResult() == ButtonType.OK)
-		{
+		{      
 		tv.getSelectionModel().getSelectedIndex();
 		data.remove(tv.getSelectionModel().getSelectedIndex());
 		}
@@ -163,9 +163,15 @@ private Stage stage;
 		if (e.getClickCount() >= 2 && tv.getSelectionModel().getSelectedIndex() != -1)
 		{
 			CustomDialog c = new CustomDialog();
-			Person p = new Person(selectedPerson.getFirstName(),selectedPerson.getLastName(),selectedPerson.getEmail());
-			c.sendPerson(p);
-			c.showAndWait();
+			Person tempPerson = new Person(selectedPerson.getFirstName(),selectedPerson.getLastName(),selectedPerson.getEmail());
+			c.sendPerson(tempPerson);
+			if (c.showAndWait().get() == ButtonType.APPLY)
+			{
+				tv.getItems().set(tv.getSelectionModel().getSelectedIndex(),tempPerson);
+			}
+			
+			
+			
 		}
 	}
 	
@@ -266,10 +272,6 @@ private Stage stage;
 		
 	}
 	
-	public void showLoadAlert(int count, boolean value)
-	{
-		
-	}
 	
 	public void setStage(Stage someStage)
 	{

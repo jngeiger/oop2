@@ -1,10 +1,8 @@
 package oop2.addressBookClone;
 
-import javafx.collections.ObservableList;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -23,6 +21,7 @@ private TextField tf3;
 private Label fn;
 private Label ln;
 private Label em;
+private Person selectedPerson;
 
 
 public CustomDialog() {
@@ -53,31 +52,23 @@ public CustomDialog() {
 		getDialogPane().setContent(root);
 	}
 
-public void sendList(ObservableList<Person> list, int index)
-{
-	Person p = new Person();
-	p.setFirstName(list.get(index).getFirstName());
-	p.setLastName(list.get(index).getLastName());
-	p.setEmail(list.get(index).getEmail());
-	
-	
-	tf1.textProperty().bindBidirectional(p.firstNameProperty());
-	tf2.textProperty().bindBidirectional(p.lastNameProperty());
-	tf3.textProperty().bindBidirectional(p.emailProperty());
- 	
-}
+
 
 public void sendPerson(Person p)
 {
-	tf1.textProperty().bindBidirectional(p.firstNameProperty());
-	tf2.textProperty().bindBidirectional(p.lastNameProperty());
-	tf3.textProperty().bindBidirectional(p.emailProperty());
+	selectedPerson = new Person();
+	selectedPerson = p;
+	tf1.textProperty().bindBidirectional(selectedPerson.firstNameProperty());
+	tf2.textProperty().bindBidirectional(selectedPerson.lastNameProperty());
+	tf3.textProperty().bindBidirectional(selectedPerson.emailProperty());
  	
 }
 
+
+
 public Person getSelectedPerson()
 {
-	return new Person(tf1.getText(),tf2.getText(),tf3.getText());
+	return selectedPerson;
 }
 
 }
