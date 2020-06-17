@@ -28,5 +28,6 @@
 <Circle fx:id="c3" GridPane.rowIndex="3"></Circle>
 <Button fx:id="btn1" text="START" GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#start"/>
 <Button fx:id="btn2" text="STOP" GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#stop"/>
+<TextField fx:id="tf1" text="STOPPED" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 </GridPane>
 
