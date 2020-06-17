@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -19,12 +22,11 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.shape.Circle?>
 
-
-<GridPane xmlns:fx="JAVA" fx:controller="oop2.multithreading.MultithreadingController">
-<Label fx:id="timer" text="Default"/>
-<ProgressBar fx:id="bar" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-<Button fx:id="start" text="start" onAction="#btnclick" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-<Button fx:id="blub" text="checkThreading" onAction="#alive" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-<Button fx:id="startAsService" text="startAsService" onAction="#btnClickSvc" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-<Button fx:id="stopService" text="Stop Service" onAction="#btnStop" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop2.multithreading.AmpelController">
+<Circle fx:id="c1" GridPane.rowIndex="1"></Circle>
+<Circle fx:id="c2" GridPane.rowIndex="2"></Circle>
+<Circle fx:id="c3" GridPane.rowIndex="3"></Circle>
+<Button fx:id="btn1" text="START" GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#start"/>
+<Button fx:id="btn2" text="STOP" GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#stop"/>
 </GridPane>
+
