@@ -3,6 +3,8 @@ package oop2.multithreading;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -20,7 +22,7 @@ public class AmpelController implements Initializable {
 @FXML Button btn1;
 @FXML Button btn2;
 Thread t1;
-Service<Void> s1;
+Service<Color> s1;
 @FXML TextField tf1;
 
 @Override
@@ -53,24 +55,21 @@ public void initialize(URL location, ResourceBundle resources) {
 public void start(ActionEvent event) 
 {
 	
-	s1 = new Service<Void>() {
-		protected Task<Void> createTask()
+	s1 = new Service<Color>() {
+		protected Task<Color> createTask()
 		{
-			return new Task<Void>() {
-				protected Void call() throws InterruptedException
+			return new Task<Color>() {
+				protected Color call() throws InterruptedException
 				{
 					tf1.setText("STARTED");
 					while (!isCancelled())
 					{
-						
-							c3.setFill(Color.TRANSPARENT);
-							c1.setFill(Color.RED);
+							
+							updateValue(Color.RED);
 							Thread.sleep(1000);
-							c1.setFill(Color.TRANSPARENT);
-							c2.setFill(Color.YELLOW);
+							updateValue(Color.YELLOW);
 							Thread.sleep(1000);
-							c2.setFill(Color.TRANSPARENT);
-							c3.setFill(Color.GREEN);
+							updateValue(Color.GREEN);
 							Thread.sleep(1000);
 						
 						
@@ -80,7 +79,34 @@ public void start(ActionEvent event)
 			};
 		};
 	};
+	
+	s1.valueProperty().addListener(new ChangeListener<Color>() {
+	
+		@Override
+		public void changed(ObservableValue observable, Color oldValue, Color newValue) {
+			// TODO Auto-generated method stub
+			if (newValue == Color.RED)
+			{
+				c1.setFill(newValue);
+				c2.setFill(Color.TRANSPARENT);
+				c3.setFill(Color.TRANSPARENT);
+			}
+			if (newValue == Color.YELLOW)
+			{
+				c2.setFill(newValue);
+				c1.setFill(Color.TRANSPARENT);
+				c3.setFill(Color.TRANSPARENT);
+			}
+			if (newValue == Color.GREEN)
+			{
+				c3.setFill(newValue);
+				c2.setFill(Color.TRANSPARENT);
+				c1.setFill(Color.TRANSPARENT);
+			}
+		}
+	});
 	s1.start();
+	
 }
 
 public void stop(ActionEvent event)

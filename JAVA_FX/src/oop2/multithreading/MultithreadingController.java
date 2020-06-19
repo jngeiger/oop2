@@ -53,7 +53,7 @@ public Service<Void> svc;
 		t = new Thread(t1);
 		t.start();
 	}
-
+	
 	public void btnClickSvc(ActionEvent event)
 	{
 		svc = new Service<Void>() {
@@ -79,8 +79,9 @@ public Service<Void> svc;
 			};
 		bar.progressProperty().bind(svc.progressProperty());
 		svc.start();
-			
+		
 	}
+	
 	
 	public void btnStop(ActionEvent event)
 	{
