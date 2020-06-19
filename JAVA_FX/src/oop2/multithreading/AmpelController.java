@@ -91,13 +91,13 @@ public void start(ActionEvent event)
 				c2.setFill(Color.TRANSPARENT);
 				c3.setFill(Color.TRANSPARENT);
 			}
-			if (newValue == Color.YELLOW)
+			else if (newValue == Color.YELLOW)
 			{
 				c2.setFill(newValue);
 				c1.setFill(Color.TRANSPARENT);
 				c3.setFill(Color.TRANSPARENT);
 			}
-			if (newValue == Color.GREEN)
+			else 
 			{
 				c3.setFill(newValue);
 				c2.setFill(Color.TRANSPARENT);
@@ -112,7 +112,7 @@ public void start(ActionEvent event)
 public void stop(ActionEvent event)
 {
 	s1.cancel();
-	this.initialize(null, null);
+	
 }
 
 }
