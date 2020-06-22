@@ -16,6 +16,8 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -55,7 +57,6 @@ private Stage stage;
 	public void initialize(URL location, ResourceBundle resource)
 	{
 		data = tv.getItems();
-		
 		
 		selectedPerson = new Person();
 		tf1.textProperty().bindBidirectional(selectedPerson.firstName);
@@ -168,10 +169,7 @@ private Stage stage;
 			if (c.showAndWait().get() == ButtonType.APPLY)
 			{
 				tv.getItems().set(tv.getSelectionModel().getSelectedIndex(),tempPerson);
-			}
-			
-			
-			
+			}	
 		}
 	}
 	
