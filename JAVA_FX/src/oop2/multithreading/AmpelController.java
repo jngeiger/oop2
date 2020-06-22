@@ -1,8 +1,10 @@
 package oop2.multithreading;
 
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Service;
@@ -24,6 +26,8 @@ public class AmpelController implements Initializable {
 Thread t1;
 Service<Color> s1;
 @FXML TextField tf1;
+
+public enum states { HELLO };
 
 @Override
 public void initialize(URL location, ResourceBundle resources) {
@@ -91,13 +95,13 @@ public void start(ActionEvent event)
 				c2.setFill(Color.TRANSPARENT);
 				c3.setFill(Color.TRANSPARENT);
 			}
-			if (newValue == Color.YELLOW)
+			else if (newValue == Color.YELLOW)
 			{
 				c2.setFill(newValue);
 				c1.setFill(Color.TRANSPARENT);
 				c3.setFill(Color.TRANSPARENT);
 			}
-			if (newValue == Color.GREEN)
+			else 
 			{
 				c3.setFill(newValue);
 				c2.setFill(Color.TRANSPARENT);
@@ -112,7 +116,7 @@ public void start(ActionEvent event)
 public void stop(ActionEvent event)
 {
 	s1.cancel();
-	this.initialize(null, null);
+	
 }
 
 }
