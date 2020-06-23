@@ -28,5 +28,7 @@ public void start(Stage primaryStage) throws Exception {
 	scene.getStylesheets().add(getClass().getResource("AddressBookUebung.css").toExternalForm());
 	primaryStage.setScene(scene);
 	primaryStage.show();	
+	
+	
 }
 }
