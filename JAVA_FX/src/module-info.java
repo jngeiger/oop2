@@ -20,6 +20,7 @@ module OOP2_JAVA_FX_2 {
 	exports oop2.multithreading;
 	exports oop2.ab_wdh;
 	exports oop2.experimental;
+	exports oop2.statistik;
 	
 	opens oop2.addressBookClone;
 	opens oop2.taschenrechner_properties;
@@ -36,4 +37,5 @@ module OOP2_JAVA_FX_2 {
 	opens oop2.multithreading;
 	opens oop2.ab_wdh;
 	opens oop2.experimental;
+	opens oop2.statistik;
 }

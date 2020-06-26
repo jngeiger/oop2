@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="root" hgap="5" minWidth="650" nodeOrientation="LEFT_TO_RIGHT" vgap="5" xmlns:fx="blub" fx:controller="oop2.statistik.Menu1Controller">
+<Label fx:id="intro" text="Datensätze bitte kommagetrennt eingeben:" GridPane.rowIndex="1" />
+<TextArea fx:id="ta" GridPane.rowIndex="2" />
+<Button fx:id="button" onAction="#calculate" text="Calculate" GridPane.rowIndex="3" />
+<Label fx:id="validData" maxWidth="100" text="Enter Data" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+
+<GridPane GridPane.rowIndex="4">
+<Label fx:id="var" text="Varianz: " GridPane.columnIndex="0" GridPane.rowIndex="4" />
+<Label fx:id="standard" text="Standardabweichung: " GridPane.columnIndex="0" GridPane.rowIndex="5" />  
+<TextField fx:id="tfVar" GridPane.columnIndex="1" GridPane.rowIndex="4"> </TextField>
+<TextField fx:id="tfStandard" GridPane.columnIndex="1" GridPane.rowIndex="5"> </TextField>
+
+</GridPane>
+ 
+ 
+<padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</padding> 
+</GridPane>
