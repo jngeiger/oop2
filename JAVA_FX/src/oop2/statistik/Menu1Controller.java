@@ -37,6 +37,7 @@ public class Menu1Controller implements Initializable {
     Image hacken;
     Image kreuz;
     Statistics engine = new Statistics(rawData);
+    MergeSort<Integer> sorting = new MergeSort<Integer>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
@@ -77,9 +78,11 @@ public class Menu1Controller implements Initializable {
                         }
                     }
                 }
+                sorting.sort(rawData);
                 engine.getVarianz();
                 engine.getStandardabweichung();
                 engine.getMittelwert();
+                engine.getMedian();
 
             }});
         isValid.addListener(new ChangeListener<Boolean>() {
@@ -100,9 +103,28 @@ public class Menu1Controller implements Initializable {
         tfMittelwert.textProperty().bind(engine.getMittelwert());
         tfVar.textProperty().bind(engine.getVarianz());
         tfStandard.textProperty().bind(engine.getStandardabweichung());
+        tfMedian.textProperty().bind(engine.getMedian());
     }
     public void reset(ActionEvent actionEvent)
     {
-        ta.setText("");
+      
+        System.out.println(rawData);
     }
+    
+    public void parseSorted(ActionEvent event)
+    {
+    	String s = "";
+    	for (int i = 0; i < rawData.size(); i++)
+    	{
+    		if (i == rawData.size()-1)
+    		{
+    			s+= rawData.get(i);
+    			break;
+    		}
+    		s += rawData.get(i) + ",";
+    	}
+    	ta.setText(s);
+    }
+    
+   
 }

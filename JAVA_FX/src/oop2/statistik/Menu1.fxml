@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +16,7 @@
 <GridPane fx:id="root" hgap="5" minWidth="650" nodeOrientation="LEFT_TO_RIGHT" vgap="5" xmlns:fx="blub" fx:controller="oop2.statistik.Menu1Controller">
     <Label fx:id="intro" text="Datensätze bitte kommagetrennt eingeben:" GridPane.rowIndex="1" />
     <TextArea fx:id="ta" GridPane.rowIndex="2" />
-    <Button fx:id="button" onAction="#reset" text="Reset" GridPane.rowIndex="3" />
+   
     <Label fx:id="validData" maxWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
 
     <GridPane GridPane.rowIndex="4">
@@ -29,6 +30,13 @@
         <TextField fx:id="tfMedian" GridPane.columnIndex="1" GridPane.rowIndex="48"> </TextField>
         <TextField fx:id="tfModus" GridPane.columnIndex="1" GridPane.rowIndex="49"> </TextField>
         <TextField fx:id="tfMittelwert" GridPane.columnIndex="1" GridPane.rowIndex="50"> </TextField>
+        <HBox GridPane.rowIndex="47" GridPane.columnIndex="0" spacing="10">
+        	<padding>
+        		<Insets top="2.0" bottom="10.0" right="2.0" left="2.0"/>
+        	</padding>
+        	<Button fx:id="button" onAction="#reset" text="Reset"/>
+    		<Button fx:id="sortButton" onAction="#parseSorted" text="Eingabe sortieren"></Button>
+    	</HBox>
     </GridPane>
 
     <padding>

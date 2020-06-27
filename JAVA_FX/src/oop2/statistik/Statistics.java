@@ -18,6 +18,7 @@ public class Statistics {
     private final SimpleStringProperty varianz = new SimpleStringProperty();
     private final SimpleStringProperty standardabw = new SimpleStringProperty();
     private final SimpleStringProperty mittelwert = new SimpleStringProperty();
+    private final SimpleStringProperty median = new SimpleStringProperty();
     public Statistics(ObservableList<Integer> rawData)
     {
             this.rawData = rawData;
@@ -52,5 +53,34 @@ public class Statistics {
         }
         mittelwert.set(String.valueOf(sum/n));
         return mittelwert;
+    }
+    
+    public SimpleStringProperty getMedian()
+    {
+    	Double result = 0.0/0.0;
+    	if (rawData.size() % 2 == 0)
+    	{
+    		try {
+    		result = ((rawData.get(rawData.size()/2-1)).doubleValue() + rawData.get(rawData.size() / 2).doubleValue()) / 2;
+    		Math.floor(result);
+    		}
+    		catch (IndexOutOfBoundsException e)
+    		{
+    			// when list size is 0
+    		}
+    		}
+    		
+    	else {
+    		try {
+    		result = (rawData.get(rawData.size()/2).doubleValue());
+    	
+    		}
+    		catch (IndexOutOfBoundsException e)
+    		{
+    			// when list size is 0
+    		}
+    	}
+    	median.set(String.valueOf(result));
+		return median;
     }
 }
