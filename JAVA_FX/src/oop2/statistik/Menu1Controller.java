@@ -83,6 +83,9 @@ public class Menu1Controller implements Initializable {
                 engine.getStandardabweichung();
                 engine.getMittelwert();
                 engine.getMedian();
+                engine.getModus();
+                		
+                
 
             }});
         isValid.addListener(new ChangeListener<Boolean>() {
@@ -104,11 +107,11 @@ public class Menu1Controller implements Initializable {
         tfVar.textProperty().bind(engine.getVarianz());
         tfStandard.textProperty().bind(engine.getStandardabweichung());
         tfMedian.textProperty().bind(engine.getMedian());
+        tfModus.textProperty().bind(engine.getModus());
     }
     public void reset(ActionEvent actionEvent)
     {
-      
-        System.out.println(rawData);
+      ta.setText("");
     }
     
     public void parseSorted(ActionEvent event)

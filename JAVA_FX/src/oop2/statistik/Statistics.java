@@ -2,16 +2,11 @@ package oop2.statistik;
 
 
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
+import java.util.Arrays;
+import java.util.Optional;
 
-
-import java.util.List;
-
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 
 public class Statistics {
     private final ObservableList<Integer> rawData;
@@ -19,6 +14,8 @@ public class Statistics {
     private final SimpleStringProperty standardabw = new SimpleStringProperty();
     private final SimpleStringProperty mittelwert = new SimpleStringProperty();
     private final SimpleStringProperty median = new SimpleStringProperty();
+    private final SimpleStringProperty modus = new SimpleStringProperty();
+    
     public Statistics(ObservableList<Integer> rawData)
     {
             this.rawData = rawData;
@@ -54,6 +51,52 @@ public class Statistics {
         mittelwert.set(String.valueOf(sum/n));
         return mittelwert;
     }
+    
+    public SimpleStringProperty getModus()
+    {	
+    	try {
+    		Optional<Integer> maximal = rawData.stream().max((x,y) -> x.compareTo(y));
+    		int[] buckets = new int[maximal.get()+1];
+    		
+    		for (int i = 0; i < rawData.size(); i++)
+    		{
+    			buckets[rawData.get(i)] += 1;
+    		}
+    		
+    		int max = 0;
+    		String modal = "";
+    		for (int i = 0; i < buckets.length; i++)
+    		{
+    			int cv = buckets[i];
+    			if (cv > max)
+    			{
+    				modal = String.valueOf(i);
+    				max = cv;
+    			}
+    			else if (cv == max)
+    			{
+    				modal += "," + String.valueOf(i);
+    			}
+    			
+    		}
+    		
+    		modus.set(modal);
+    		return modus;
+    	}
+    	catch (Exception e)
+    	{
+    	
+    	}
+    	
+    	return modus;
+    	
+    
+    
+    	
+    	
+    }
+   
+    
     
     public SimpleStringProperty getMedian()
     {
