@@ -9,22 +9,29 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.VBox?>
 <GridPane fx:id="root" hgap="5" minWidth="650" nodeOrientation="LEFT_TO_RIGHT" vgap="5" xmlns:fx="blub" fx:controller="oop2.statistik.Menu1Controller">
-<Label fx:id="intro" text="Datensätze bitte kommagetrennt eingeben:" GridPane.rowIndex="1" />
-<TextArea fx:id="ta" GridPane.rowIndex="2" />
-<Button fx:id="button" onAction="#calculate" text="Calculate" GridPane.rowIndex="3" />
-<Label fx:id="validData" maxWidth="100" text="Enter Data" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+    <Label fx:id="intro" text="Datensätze bitte kommagetrennt eingeben:" GridPane.rowIndex="1" />
+    <TextArea fx:id="ta" GridPane.rowIndex="2" />
+    <Button fx:id="button" onAction="#reset" text="Reset" GridPane.rowIndex="3" />
+    <Label fx:id="validData" maxWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
 
-<GridPane GridPane.rowIndex="4">
-<Label fx:id="var" text="Varianz: " GridPane.columnIndex="0" GridPane.rowIndex="4" />
-<Label fx:id="standard" text="Standardabweichung: " GridPane.columnIndex="0" GridPane.rowIndex="5" />  
-<TextField fx:id="tfVar" GridPane.columnIndex="1" GridPane.rowIndex="4"> </TextField>
-<TextField fx:id="tfStandard" GridPane.columnIndex="1" GridPane.rowIndex="5"> </TextField>
+    <GridPane GridPane.rowIndex="4">
+        <Label text="Median:" GridPane.columnIndex="0" GridPane.rowIndex="48"/>
+        <Label text="Modus:" GridPane.columnIndex="0" GridPane.rowIndex="49"/>
+        <Label text="Mittelwert:" GridPane.columnIndex="0" GridPane.rowIndex="50"/>
+        <Label text="Varianz: " GridPane.columnIndex="0" GridPane.rowIndex="51" />
+        <Label text="Standardabweichung: " GridPane.columnIndex="0" GridPane.rowIndex="52" />
+        <TextField fx:id="tfVar" GridPane.columnIndex="1" GridPane.rowIndex="51"> </TextField>
+        <TextField fx:id="tfStandard" GridPane.columnIndex="1" GridPane.rowIndex="52"> </TextField>
+        <TextField fx:id="tfMedian" GridPane.columnIndex="1" GridPane.rowIndex="48"> </TextField>
+        <TextField fx:id="tfModus" GridPane.columnIndex="1" GridPane.rowIndex="49"> </TextField>
+        <TextField fx:id="tfMittelwert" GridPane.columnIndex="1" GridPane.rowIndex="50"> </TextField>
+    </GridPane>
 
-</GridPane>
- 
- 
-<padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-</padding> 
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
 </GridPane>
