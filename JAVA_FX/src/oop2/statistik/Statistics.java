@@ -110,6 +110,7 @@ public class Statistics {
     		catch (IndexOutOfBoundsException e)
     		{
     			// when list size is 0
+    			
     		}
     		}
     		
@@ -121,6 +122,7 @@ public class Statistics {
     		catch (IndexOutOfBoundsException e)
     		{
     			// when list size is 0
+    			
     		}
     	}
     	median.set(String.valueOf(result));
