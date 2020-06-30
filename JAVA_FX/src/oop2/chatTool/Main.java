@@ -17,7 +17,12 @@ public class Main extends Application {
 	
 	public void start(Stage primaryStage) throws IOException
 	{
-		GridPane root = FXMLLoader.load(getClass().getResource("ChatTool.fxml"));
+		
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("ChatTool.fxml"));
+		
+		GridPane root = fx.load();
+		ChatController ctrl = fx.getController();
+		ctrl.setStage(primaryStage);
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("Better than WhatsApp");
 		primaryStage.show();
