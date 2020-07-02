@@ -1,4 +1,4 @@
-package oop2.networking;
+package oop2.netzwerk;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,10 +6,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class EchoClient {
+	
+	
 	public static String hostName = "192.168.37.129";
 	public static int portNumber = 9999;
 	
-	public static void launch()
+	public static void main(String[] args)
 	{
 		try {
 			Socket clientSocket = new Socket(hostName,portNumber);
@@ -27,11 +29,7 @@ public class EchoClient {
 				
 			    out.println(userInput);
 			    serverOutput = in.readLine();
-			    if (serverOutput.contains("code1"))
-				{
-			    	System.out.println("Server closed Connection, terminating");
-					return;
-				}
+			    
 			    System.out.println("echo: " + serverOutput);
 			}
 		}
@@ -40,5 +38,4 @@ public class EchoClient {
 			System.out.println(e.getMessage());
 		}
 	}
-
 }
