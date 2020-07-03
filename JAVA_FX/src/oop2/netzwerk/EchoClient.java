@@ -8,7 +8,7 @@ import java.net.Socket;
 public class EchoClient {
 	
 	
-	public static String hostName = "192.168.37.129";
+	public static String hostName = "localhost";
 	public static int portNumber = 9999;
 	
 	public static void main(String[] args)

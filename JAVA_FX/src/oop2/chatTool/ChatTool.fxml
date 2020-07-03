@@ -27,7 +27,7 @@
 <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="10.0">
 <padding><Insets top="5.0" bottom="5.0" left="5.0" right="5.0"/></padding>
 <Label text="Port:"></Label>
-<TextField></TextField>  
+<TextField fx:id="srvPort"></TextField>  
 <Button text="Server starten" fx:id="srvbtn" onAction="#startServer"></Button>
 </HBox>
 <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" spacing="10.0">

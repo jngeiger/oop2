@@ -4,16 +4,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ChatController implements Initializable {
 Stage stage;
 @FXML Button srvbtn;
 ServerPanel panel;
+@FXML TextField srvPort;
 
 	public void initialize(URL url, ResourceBundle rbl)
 	{
@@ -33,6 +34,7 @@ ServerPanel panel;
 	public void startServer(ActionEvent event)
 	{
 		try {
+			panel.lbl = srvPort;
 			panel.start(stage);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
