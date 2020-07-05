@@ -24,7 +24,7 @@ TextArea ta;
 		s.run();
 		
 		isStarted.set(true);
-		ta.textProperty().bind(s.getText()):
+		
 		GridPane test = new GridPane();
 		test.getChildren().add(new Label("I'm the Server"));
 		Scene sc = new Scene(test);
